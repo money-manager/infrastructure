@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  client:
+    build: ./services/client/.
+    networks:
+      - money-manager
+
+  fincon-service:
+    build: ./services/fincon-service/.
+    networks:
+      - money-manager
+
+  mysql:
+    build: ./services/fincon-service/db/.
+    networks:
+      - money-manager
+
+networks:
+  money-manager:
+    driver: bridge
